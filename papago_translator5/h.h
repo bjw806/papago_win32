@@ -20,17 +20,6 @@ using namespace std;
 
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam);
-const string TCHARToString(const TCHAR* ptsz);
-wstring s2ws(const std::string& s);
-LPWSTR ConvertString(const string& instr);
-string translateDLL(string str);
-string retst(string str);
-TCHAR* StringToTCHAR(string& s);
-string parse(string str);
-LPWSTR parseLPWSTR(LPWSTR str);
-wchar_t* getClip();
-void setClip(wchar_t* str);
-char* UTF8ToANSI(const char* pszCode);
 _bstr_t setLang(int lang);
 
 BOOL CALLBACK DlgProc(HWND, UINT, WPARAM, LPARAM);
