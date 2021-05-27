@@ -117,13 +117,6 @@ BOOL CALLBACK DlgProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam) {
 			// 파일열기 대화상자를 열고, 선택된 파일의 이름을 에디트 박스로 복사
 			if (0 != GetOpenFileName(&OFN)) {
 				SetWindowText(hEditFileToBeOpened, _T("File Open"));//OFN.lpstrFile (파일이름)
-				/*string in_line;
-				string str;
-				ifstream in(OFN.lpstrFile);
-				while (getline(in, in_line)) {
-					str = str + UTF8ToANSI(in_line.c_str()) + "\r\n";
-					//str = str + in_line + "\r\n";
-				}*/
 				LPWSTR str = cpi->readfile(OFN.lpstrFile);
 				//유니코드 문자가 다 깨져서 C#으로 우회
 				SetDlgItemText(hDlg, IDC_INPUT, str);
@@ -170,17 +163,6 @@ BOOL CALLBACK DlgProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam) {
 		case IDC_COPY: {
 			cpi->setclipboard(result);
 			SetDlgItemText(hDlg, IDC_DETECTOUT, _T("Copied"));
-			/*
-			const char* output = strresult.c_str();
-			const size_t len = strlen(output) + 1;
-			HGLOBAL hMem = GlobalAlloc(GMEM_MOVEABLE, len);
-			memcpy(GlobalLock(hMem), output, len);
-			GlobalUnlock(hMem);
-			if (OpenClipboard(0)) {
-				EmptyClipboard();
-				SetClipboardData(CF_TEXT, hMem);
-				CloseClipboard();
-			}*/
 			break; }
      	case IDOK:
 		case IDCANCEL: {
