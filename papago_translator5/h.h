@@ -20,7 +20,20 @@ using namespace std;
 
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam);
+const string TCHARToString(const TCHAR* ptsz);
+wstring s2ws(const std::string& s);
+LPWSTR ConvertString(const string& instr);
+string translateDLL(string str);
+string retst(string str);
+TCHAR* StringToTCHAR(string& s);
+string parse(string str);
+LPWSTR parseLPWSTR(LPWSTR str);
+wchar_t* getClip();
+void setClip(wchar_t* str);
+char* UTF8ToANSI(const char* pszCode);
 _bstr_t setLang(int lang);
+void rewriteFile(TCHAR filename[], _bstr_t src, _bstr_t trg);	// 파일을 읽고 다른 파일에 쓰는 함수
 
 BOOL CALLBACK DlgProc(HWND, UINT, WPARAM, LPARAM);
+BOOL CALLBACK DlgProc2(HWND, UINT, WPARAM, LPARAM);
 LRESULT CALLBACK ChildWndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam);

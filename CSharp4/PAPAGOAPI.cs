@@ -21,6 +21,8 @@ namespace PAPAGOAPI
         int lengthof(string str);
         void setclipboard(string str);
         string readfile(string str);
+
+        void transFile(string filename, string source, string target);
         string connect(string str, string str2, int i);
         string translate(string str, string source, string target);
         string language(string str);
@@ -80,6 +82,25 @@ namespace PAPAGOAPI
         public string readfile(string str){
             return System.IO.File.ReadAllText(str);
         }
+        public void transFile(string filename, string source, string target)
+        {
+            string[] textValue = System.IO.File.ReadAllLines(filename);
+            string result;
+            
+            if (textValue.Length > 0)
+            {
+                for (int i = 0; i < textValue.Length; i++)
+                {
+                    result = translate(textValue[i], source, target);
+                    using (StreamWriter outputFile = new StreamWriter(filename, true))
+                    {
+                        outputFile.WriteLine(result);
+                    }
+                }
+            }
+            
+        }
+
         public string connect(string str, string str2, int i){
             if (i == 0)
                 return (str + str2);
@@ -95,6 +116,7 @@ namespace PAPAGOAPI
             request.Headers.Add("X-NCP-APIGW-API-KEY", "nccC8Z1vdCW0emVimVgH5Vv9b6UYgzJ6NGJd0PaW");
             request.Method = "POST";
             string query = str;
+            query = query.Replace("\\\"", "\"");
             // 개행문자 삭제
             //query = query.Replace("\n", "");
             //query = query.Replace("\r", " ");
@@ -115,7 +137,7 @@ namespace PAPAGOAPI
             reader.Close();
             //Console.WriteLine(text);
             words = parseTT(text);
-            words = words.Replace("\\\"", "\"");
+            //words = words.Replace("\\\"", "\"");
             return words;
         }
 

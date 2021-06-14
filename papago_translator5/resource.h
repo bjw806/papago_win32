@@ -5,9 +5,11 @@
 #define IDD_DIALOG1                     101
 #define IDI_ICON1                       104
 #define IDB_PNG1                        105
+#define IDD_DIALOG2                     106
 #define IDC_BUTTON1                     1001
 #define IDC_TRANSLATE                   1001
 #define IDC_INPUT                       1002
+#define IDC_BUTTON3                     1002
 #define IDC_OUTPUT                      1003
 #define IDC_DECODE                      1004
 #define IDC_COMBO1                      1005
@@ -23,6 +25,7 @@
 #define IDC_DETECTOUT                   1012
 #define IDC_BUTTON2                     1013
 #define IDC_COPY                        1013
+#define IDC_TRANSFILE                   1013
 #define IDC_PASTE                       1014
 #define IDC_SAVEFILE                    1015
 
@@ -30,9 +33,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        106
+#define _APS_NEXT_RESOURCE_VALUE        108
 #define _APS_NEXT_COMMAND_VALUE         40001
-#define _APS_NEXT_CONTROL_VALUE         1016
+#define _APS_NEXT_CONTROL_VALUE         1017
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
